@@ -12,30 +12,44 @@ class RestauranteApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Restaurante App")
-        self.root.geometry("500x400")
+        self.root.geometry("900x600")
+        self.root.resizable(True, True)
 
         archivo_servicio = ArchivoServicio()
 
         base_dir = os.path.dirname(os.path.abspath(__file__))
 
         ruta_usuarios = os.path.join(
-    base_dir,
-    "datos",
-    "usuarios.json"
-)
+            base_dir,
+            "datos",
+            "usuarios.json"
+        )
 
         ruta_productos = os.path.join(
-    base_dir,
-    "datos",
-    "productos.json"
-)
+            base_dir,
+            "datos",
+            "productos.json"
+        )
+
+        ruta_ventas = os.path.join(
+            base_dir,
+            "datos",
+            "ventas.json"
+        )
 
         usuarios = archivo_servicio.leer_json(ruta_usuarios)
         productos = archivo_servicio.leer_json(ruta_productos)
 
+        # Si ventas.json está vacío, se inicializa como una lista.
+        if not os.path.exists(ruta_ventas) or os.path.getsize(ruta_ventas) == 0:
+            archivo_servicio.guardar_json(ruta_ventas, [])
+
         self.restaurante_servicio = RestauranteServicio(
             usuarios,
-            productos
+            productos,
+            archivo_servicio,
+            ruta_productos,
+            ruta_ventas
         )
 
         self.mostrar_login()

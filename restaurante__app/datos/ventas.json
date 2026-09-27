@@ -1,0 +1,29 @@
+[
+    {
+        "id": "v001",
+        "usuario": "admin",
+        "producto": "Hamburguesa",
+        "cantidad": "2.00"
+    },
+    {
+        "usuario": "Marcos",
+        "producto": "Ensalada",
+        "fecha": "2026-09-27 16:48:37",
+        "usuario_id": 2,
+        "producto_id": 3
+    },
+    {
+        "usuario": "Melany",
+        "producto": "Hamburguesa",
+        "fecha": "2026-09-27 16:48:47",
+        "usuario_id": 1,
+        "producto_id": 1
+    },
+    {
+        "usuario": "Marcos",
+        "producto": "Pizza",
+        "fecha": "2026-09-27 16:49:06",
+        "usuario_id": 2,
+        "producto_id": 2
+    }
+]
